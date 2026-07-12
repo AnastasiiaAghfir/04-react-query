@@ -1,5 +1,5 @@
 import ReactPaginateModule from 'react-paginate';
-import { ReactPaginateProps } from 'react-paginate';
+import type { ReactPaginateProps } from 'react-paginate';
 import type { ComponentType } from 'react';
 import css from './Pagination.module.css';
 

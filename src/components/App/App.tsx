@@ -30,7 +30,6 @@ export default function App() {
   return (
     <div className={css.app}>
       <SearchBar onSubmit={handleSearch} />
-      <Toaster />
       {isLoading && <Loader />}
       {!isError && !isLoading && data?.results && (
         <MovieGrid onSelect={setSelectedMovie} movies={data.results} />
