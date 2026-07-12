@@ -8,7 +8,7 @@ import type { Movie } from '../../types/movie';
 import MovieModal from '../MovieModal/MovieModal';
 import fetchMovies from '../../services/movieService';
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
-import Pagination from '../Pagination/Pagination';
+import ReactPaginate from '../ReactPaginate/ReactPaginate';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function App() {
@@ -38,16 +38,16 @@ export default function App() {
     <div className={css.app}>
       <SearchBar onSubmit={handleSearch} />
       <Toaster />
-      {isLoading && <Loader />}
+      {query && isLoading && <Loader />}
       {!isError && !isLoading && data?.results && (
         <MovieGrid onSelect={setSelectedMovie} movies={data.results} />
       )}
       {isError && <ErrorMessage />}
 
       {data && data?.total_pages > 1 && (
-        <Pagination
-          totalPages={data.total_pages}
-          currentPage={currentPage}
+        <ReactPaginate
+          pageCount={data.total_pages}
+          forcePage={currentPage}
           onPageChange={setCurrentPage}
         />
       )}
