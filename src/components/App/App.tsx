@@ -21,9 +21,6 @@ export default function App() {
     queryFn: () => fetchMovies(query, currentPage),
     enabled: query !== '',
     placeholderData: keepPreviousData,
-    onError: () => {
-    toast.error('Whoops, something went wrong');
-  },
   });
 
   const handleSearch = async (query: string) => {
